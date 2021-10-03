@@ -7,6 +7,12 @@ import List from './components/List/List';
 import Map from './components/Map/Map';
 
 const App = () => {
+  const onPlaceChanged = () => {
+    const lat = autocomplete.getPlace().geometry.location.lat();
+    const lng = autocomplete.getPlace().geometry.location.lng();
+
+    setCoords({ lat, lng });
+  };
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState('');
 
